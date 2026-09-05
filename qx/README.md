@@ -79,14 +79,19 @@ final, Proxy
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/YouTube/YouTube.list, tag=YouTube, force-policy=Proxy, update-interval=86400, opt-parser=false, enabled=true
 ```
 
-## 重新生成
+## 自动更新
 
 规则数据来自 [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)，
-上游每日更新。同步上游后执行：
+上游每日更新。`.github/workflows/update-qx.yml` 每天 **03:00（UTC+8）** 自动同步上游并重新生成
+`qx/` 下的文件，只有内容真的变化时才提交，所以订阅链接保持不变即可。
+
+也可以在仓库 Actions 页面手动触发（workflow_dispatch），或在本地执行：
 
 ```bash
 python3 script/qxconf/gen_qx_conf.py
 ```
+
+改时间就改 workflow 里的 cron，注意 GitHub 的 cron 用 UTC：`0 19 * * *` 对应次日 03:00（UTC+8）。
 
 需要增删规则集或调整策略映射，改 `script/qxconf/gen_qx_conf.py` 顶部的
 `SIMPLE` / `GROUP` / `REJECT` 列表即可。

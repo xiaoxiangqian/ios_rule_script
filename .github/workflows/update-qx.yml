@@ -1,0 +1,59 @@
+name: 更新 Quantumult X 合并资源
+
+on:
+  schedule:
+    # 19:00 UTC = 次日 03:00 (UTC+8)
+    - cron: '0 19 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-qx
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 同步上游规则
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add upstream https://github.com/blackmatrix7/ios_rule_script.git
+          git fetch --no-tags upstream master
+          git merge --no-edit upstream/master
+
+      - name: 准备 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: 生成合并资源
+        run: python3 script/qxconf/gen_qx_conf.py
+
+      - name: 提交并推送
+        run: |
+          git add qx
+          if git diff --cached --quiet; then
+            echo "合并资源无变化"
+          else
+            # 只有 UPDATED 时间戳变化时不产生提交
+            changed=$(git diff --cached -U0 \
+              | grep -E '^[+-]' \
+              | grep -vE '^(\+\+\+|---)' \
+              | grep -vcE '^[+-]# UPDATED:' || true)
+            if [ "$changed" -eq 0 ]; then
+              git restore --staged --worktree qx
+              echo "仅时间戳变化，跳过提交"
+            else
+              git commit -m "更新 Quantumult X 合并资源 $(date -u -d '+8 hours' +'%Y-%m-%d')"
+            fi
+          fi
+          git push origin HEAD:master
