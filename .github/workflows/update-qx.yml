@@ -38,6 +38,21 @@ jobs:
       - name: 生成订阅资源
         run: python3 script/qxconf/gen_qx_conf.py
 
+      - name: 用 Xray 校验 v2rayN 规则集
+        run: |
+          set -o pipefail
+          if ! curl -sSL --max-time 180 -o /tmp/xray.zip \
+                 https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip \
+             || ! curl -sSL --max-time 180 -o /tmp/geoip.dat \
+                 https://github.com/v2fly/geoip/releases/latest/download/geoip.dat; then
+            echo "::warning::下载 Xray 或 geoip.dat 失败，跳过本次内核校验"
+            exit 0
+          fi
+          unzip -o -q /tmp/xray.zip xray -d /tmp
+          chmod +x /tmp/xray
+          # 校验不通过就让任务失败，坏文件不会被提交
+          python3 script/qxconf/check_v2rayn.py /tmp/xray /tmp
+
       - name: 提交并推送
         run: |
           git add qx v2rayn
