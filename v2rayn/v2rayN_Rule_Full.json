@@ -1,6 +1,6 @@
 [
   {
-    "remarks": "分流规则 完整版 | 生成于 2026-09-05 18:45:46 UTC | https://github.com/blackmatrix7/ios_rule_script",
+    "remarks": "分流规则 完整版 | 生成于 2026-09-05 21:02:41 UTC | https://github.com/blackmatrix7/ios_rule_script",
     "outboundTag": "direct",
     "domain": [
       "full:ruleset-info.invalid"
@@ -6607,6 +6607,7 @@
       "domain:csw.org.uk",
       "domain:ct.org.tw",
       "domain:ctao.org",
+      "domain:ctee.com.tw",
       "domain:ctfriend.net",
       "domain:ctinets.com",
       "domain:ctinews.com",
@@ -8875,6 +8876,7 @@
       "domain:linpie.com",
       "domain:linux.do",
       "domain:linux.org.hk",
+      "domain:linux.sb",
       "domain:linuxtoy.org",
       "domain:lionsroar.com",
       "domain:lipuman.com",
@@ -19297,7 +19299,6 @@
       "domain:ctan.org",
       "domain:ctc.ac.uk",
       "domain:ctcrm.ac.uk",
-      "domain:ctee.com.tw",
       "domain:ctfassets.net",
       "domain:ctg.ac.uk",
       "domain:ctk.ac.uk",
@@ -39207,11 +39208,11 @@
       "full:audio.itunes.apple.com",
       "full:mvod.itunes.apple.com",
       "full:streamingaudio.itunes.apple.com",
+      "full:hls.itunes.apple.com",
       "full:mask-api.fe.apple-dns.net",
       "full:mask-t.apple-dns.net",
       "full:mask.apple-dns.net",
       "full:hls-amt.itunes.apple.com",
-      "full:hls.itunes.apple.com",
       "full:fmfmobile.icloud.com",
       "full:fmipmobile.icloud.com",
       "full:statici.icloud.com",
