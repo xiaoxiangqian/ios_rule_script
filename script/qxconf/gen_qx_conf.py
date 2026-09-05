@@ -21,6 +21,7 @@ v2rayN / v2rayNG（v2rayn/）：
 
 from __future__ import annotations
 
+import ipaddress
 import json
 import os
 import re
@@ -292,6 +293,41 @@ def wildcard_to_regexp(value):
     return "regexp:^" + "".join(out) + "$"
 
 
+def normalize_ip(value):
+    """把 IP/CIDR 规范成 Xray 能接受的写法，无法处理时返回 None。
+
+    上游数据里有 ``::ffff:113.248.172.245/128`` 这种 IPv4-mapped IPv6。
+    Xray 会先把它归一化成 4 字节的 IPv4，再拿 /128 去校验掩码，直接报
+    ``invalid network mask for router: 128`` 并拒绝整份配置，所以这里
+    先还原成 IPv4 写法。
+    """
+    try:
+        net = ipaddress.ip_network(value, strict=False)
+    except ValueError:
+        return None
+    if net.version == 6:
+        mapped = net.network_address.ipv4_mapped
+        if mapped is not None:
+            if net.prefixlen < 96:
+                return None
+            return f"{mapped}/{net.prefixlen - 96}"
+    return value
+
+
+def check_v2rayn(rules, where):
+    """出厂自检：Xray 拒绝的写法一旦混进来就直接失败，不要生成坏文件。"""
+    for rule in rules:
+        for value in rule.get("ip", []):
+            if value.startswith("geoip:"):
+                continue
+            net = ipaddress.ip_network(value, strict=False)
+            if net.version == 6 and net.network_address.ipv4_mapped is not None:
+                raise SystemExit(f"{where}: IPv4-mapped IPv6 未被转换：{value}")
+        for domain in rule.get("domain", []):
+            if domain.startswith("regexp:"):
+                re.compile(domain[len("regexp:"):])
+
+
 def to_v2ray(rule_type, value):
     """把一条 Quantumult X 规则转成 (字段, 值)；不支持的返回 None。
 
@@ -307,12 +343,14 @@ def to_v2ray(rule_type, value):
     if rule_type == "HOST-WILDCARD":
         return "domain", wildcard_to_regexp(value)
     if rule_type in ("IP-CIDR", "IP6-CIDR"):
-        return "ip", value
+        normalized = normalize_ip(value)
+        return ("ip", normalized) if normalized else None
     return None
 
 
 def build_v2rayn(bundle):
     seen = set()
+    emitted = set()
     rules = [
         {
             "remarks": f"{bundle['title']} | 生成于 "
@@ -337,6 +375,9 @@ def build_v2rayn(bundle):
             if converted is None:
                 dropped += 1
                 continue
+            if converted in emitted:
+                continue
+            emitted.add(converted)
             kept += 1
             (domains if converted[0] == "domain" else ips).append(converted[1])
         if domains:
@@ -367,6 +408,7 @@ def main():
     os.makedirs(V2RAY_DIR, exist_ok=True)
     for bundle in V2RAY_BUNDLES:
         rules, kept, dropped = build_v2rayn(bundle)
+        check_v2rayn(rules, bundle["file"])
         path = os.path.join(V2RAY_DIR, bundle["file"])
         with open(path, "w", encoding="utf-8") as fp:
             json.dump(rules, fp, ensure_ascii=False, indent=2)
