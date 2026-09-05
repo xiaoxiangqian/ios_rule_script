@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""把 rule/QuantumultX 下的分流规则合并为可直接被 Quantumult X 引用的资源文件。
+"""把 rule/QuantumultX 下的分流规则合并为可直接引用的订阅资源。
 
-生成物位于仓库根目录的 qx/ ：
+Quantumult X（qx/）：
 
 - QuantumultX_Reject.conf       广告拦截，全部指向 reject
 - QuantumultX_Rule_Lite.conf    轻量分流，仅需一个名为 Proxy 的策略
@@ -10,20 +10,28 @@
 - QuantumultX_Rule_Group.conf   多策略分组分流
 - INDEX.md                      全部单个规则集的资源链接索引
 
+v2rayN / v2rayNG（v2rayn/）：
+
+- v2rayN_Rule_Lite.json         轻量分流
+- v2rayN_Rule_Full.json         完整分流
+- v2rayN_Rule_Full_AdBlock.json 完整分流 + 广告拦截
+
 用法： python3 script/qxconf/gen_qx_conf.py
 """
 
 from __future__ import annotations
 
+import json
 import os
+import re
 import time
-from collections import OrderedDict
 
 REPO = "blackmatrix7/ios_rule_script"
 BRANCH = "master"
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SRC_DIR = os.path.join(ROOT, "rule", "QuantumultX")
 OUT_DIR = os.path.join(ROOT, "qx")
+V2RAY_DIR = os.path.join(ROOT, "v2rayn")
 
 RAW_PREFIX = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}/rule/QuantumultX"
 
@@ -245,6 +253,106 @@ def write_index():
     return len(names)
 
 
+# ---------------------------------------------------------------- v2rayN ----
+
+# Quantumult X 的策略名 -> v2rayN 的 outboundTag
+V2RAY_TAG = {"direct": "direct", "Proxy": "proxy", "reject": "block"}
+
+# v2rayN 的路由规则里，同一条规则内 domain 与 ip 是“同时满足”的关系，
+# 所以每个规则集要拆成域名、IP 两条规则。
+V2RAY_BUNDLES = [
+    {
+        "file": "v2rayN_Rule_Lite.json",
+        "title": "分流规则 轻量版",
+        "sections": SIMPLE,
+    },
+    {
+        "file": "v2rayN_Rule_Full.json",
+        "title": "分流规则 完整版",
+        "sections": FULL,
+    },
+    {
+        "file": "v2rayN_Rule_Full_AdBlock.json",
+        "title": "分流规则 完整版 + 广告拦截",
+        "sections": REJECT + FULL,
+    },
+]
+
+
+def wildcard_to_regexp(value):
+    """HOST-WILDCARD 的 * 和 ? 转成 Xray 支持的正则。"""
+    out = []
+    for ch in value:
+        if ch == "*":
+            out.append(".*")
+        elif ch == "?":
+            out.append(".")
+        else:
+            out.append(re.escape(ch))
+    return "regexp:^" + "".join(out) + "$"
+
+
+def to_v2ray(rule_type, value):
+    """把一条 Quantumult X 规则转成 (字段, 值)；不支持的返回 None。
+
+    字段为 "domain" 或 "ip"。USER-AGENT、IP-ASN 在 Xray 路由里没有对应能力，丢弃。
+    """
+    if rule_type == "HOST":
+        return "domain", f"full:{value}"
+    if rule_type == "HOST-SUFFIX":
+        return "domain", f"domain:{value}"
+    if rule_type == "HOST-KEYWORD":
+        # Xray 里不带前缀的字符串就是子串匹配
+        return "domain", value
+    if rule_type == "HOST-WILDCARD":
+        return "domain", wildcard_to_regexp(value)
+    if rule_type in ("IP-CIDR", "IP6-CIDR"):
+        return "ip", value
+    return None
+
+
+def build_v2rayn(bundle):
+    seen = set()
+    rules = [
+        {
+            "remarks": f"{bundle['title']} | 生成于 "
+                       f"{time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime())} UTC | "
+                       f"https://github.com/{REPO}",
+            "outboundTag": "direct",
+            "domain": ["full:ruleset-info.invalid"],
+            "enabled": False,
+        },
+        {"remarks": "局域网 IP", "outboundTag": "direct", "ip": ["geoip:private"], "enabled": True},
+    ]
+    kept = dropped = 0
+    for name, policy, desc in bundle["sections"]:
+        tag = V2RAY_TAG[policy]
+        domains, ips = [], []
+        for rule_type, value in read_rules(name):
+            key = (rule_type, value.lower())
+            if key in seen:
+                continue
+            seen.add(key)
+            converted = to_v2ray(rule_type, value)
+            if converted is None:
+                dropped += 1
+                continue
+            kept += 1
+            (domains if converted[0] == "domain" else ips).append(converted[1])
+        if domains:
+            rules.append({"remarks": f"{desc}（{name}）域名", "outboundTag": tag,
+                          "domain": domains, "enabled": True})
+        if ips:
+            rules.append({"remarks": f"{desc}（{name}）IP", "outboundTag": tag,
+                          "ip": ips, "enabled": True})
+
+    rules.append({"remarks": "中国大陆 IP 直连", "outboundTag": "direct",
+                  "ip": ["geoip:cn"], "enabled": True})
+    rules.append({"remarks": "其余流量走代理", "outboundTag": "proxy",
+                  "port": "0-65535", "enabled": True})
+    return rules, kept, dropped
+
+
 def main():
     os.makedirs(OUT_DIR, exist_ok=True)
     for bundle in BUNDLES:
@@ -255,6 +363,16 @@ def main():
         print(f"{bundle['file']}: {total} 条规则，策略 {', '.join(policies)}")
     count = write_index()
     print(f"INDEX.md: {count} 个规则集")
+
+    os.makedirs(V2RAY_DIR, exist_ok=True)
+    for bundle in V2RAY_BUNDLES:
+        rules, kept, dropped = build_v2rayn(bundle)
+        path = os.path.join(V2RAY_DIR, bundle["file"])
+        with open(path, "w", encoding="utf-8") as fp:
+            json.dump(rules, fp, ensure_ascii=False, indent=2)
+            fp.write("\n")
+        print(f"{bundle['file']}: {kept} 条规则，{len(rules)} 条路由，"
+              f"丢弃 {dropped} 条（USER-AGENT / IP-ASN）")
 
 
 if __name__ == "__main__":

@@ -80,11 +80,15 @@ final, Proxy
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/YouTube/YouTube.list, tag=YouTube, force-policy=Proxy, update-interval=86400, opt-parser=false, enabled=true
 ```
 
+## v2rayN
+
+同一套规则也转成了 v2rayN / v2rayNG 能导入的路由规则集，见 [v2rayn/README.md](../v2rayn/README.md)。
+
 ## 自动更新
 
 规则数据来自 [blackmatrix7/ios_rule_script](https://github.com/blackmatrix7/ios_rule_script)，
 上游每日更新。`.github/workflows/update-qx.yml` 每天 **03:00（UTC+8）** 自动同步上游并重新生成
-`qx/` 下的文件，只有内容真的变化时才提交，所以订阅链接保持不变即可。
+`qx/` 和 `v2rayn/` 下的文件，只有内容真的变化时才提交，所以订阅链接保持不变即可。
 
 也可以在仓库 Actions 页面手动触发（workflow_dispatch），或在本地执行：
 
