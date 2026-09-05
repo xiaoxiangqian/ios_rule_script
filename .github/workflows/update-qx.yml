@@ -57,3 +57,10 @@ jobs:
             fi
           fi
           git push origin HEAD:master
+
+      - name: 同步到订阅分支
+        continue-on-error: true
+        run: |
+          # 订阅链接用的是这个分支，合并后让它跟着 master 走，
+          # 这样已经填进 Quantumult X 的分支链接不用改也能持续更新。
+          git push origin HEAD:claude/quantumult-x-rules-conversion-jj9sgx

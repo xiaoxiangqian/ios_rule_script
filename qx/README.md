@@ -7,9 +7,10 @@ Quantumult X 的资源链接，用法与
 
 ## 资源链接
 
-> 下面的链接指向本仓库 `master` 分支。若相关改动还停留在
-> `claude/quantumult-x-rules-conversion-jj9sgx` 分支，把链接里的 `master`
-> 换成该分支名即可。
+> 下面的链接指向本仓库 `master` 分支，需要 PR 合并后才可用。
+> 合并前请把链接里的 `master` 换成 `claude/quantumult-x-rules-conversion-jj9sgx`。
+> 合并之后两种链接都有效：自动更新会把 master 和该分支一起推，所以已经填进
+> Quantumult X 的分支链接不用改。
 
 | 文件 | 内容 | 规则数 | 需要的策略 |
 | ---- | ---- | ---- | ---- |
