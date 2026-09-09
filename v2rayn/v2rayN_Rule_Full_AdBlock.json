@@ -1,6 +1,6 @@
 [
   {
-    "remarks": "分流规则 完整版 + 广告拦截 | 生成于 2026-09-07 21:59:12 UTC | https://github.com/blackmatrix7/ios_rule_script",
+    "remarks": "分流规则 完整版 + 广告拦截 | 生成于 2026-09-09 21:35:54 UTC | https://github.com/blackmatrix7/ios_rule_script",
     "outboundTag": "direct",
     "domain": [
       "full:ruleset-info.invalid"
@@ -67695,6 +67695,7 @@
       "domain:nodequality.com",
       "domain:nodereal.io",
       "domain:nodes.ac.uk",
+      "domain:nodeseek.org",
       "domain:nodesnoop.com",
       "domain:nodesource.com",
       "domain:noisullifb.com",
@@ -77285,11 +77286,11 @@
       "full:audio.itunes.apple.com",
       "full:mvod.itunes.apple.com",
       "full:streamingaudio.itunes.apple.com",
+      "full:hls.itunes.apple.com",
       "full:mask-api.fe.apple-dns.net",
       "full:mask-t.apple-dns.net",
       "full:mask.apple-dns.net",
       "full:hls-amt.itunes.apple.com",
-      "full:hls.itunes.apple.com",
       "full:fmfmobile.icloud.com",
       "full:fmipmobile.icloud.com",
       "full:statici.icloud.com",
