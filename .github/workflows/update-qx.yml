@@ -41,9 +41,9 @@ jobs:
       - name: 用 Xray 校验 v2rayN 规则集
         run: |
           set -o pipefail
-          if ! curl -sSL --max-time 180 -o /tmp/xray.zip \
+          if ! curl -fsSL --max-time 180 -o /tmp/xray.zip \
                  https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip \
-             || ! curl -sSL --max-time 180 -o /tmp/geoip.dat \
+             || ! curl -fsSL --max-time 180 -o /tmp/geoip.dat \
                  https://github.com/v2fly/geoip/releases/latest/download/geoip.dat; then
             echo "::warning::下载 Xray 或 geoip.dat 失败，跳过本次内核校验"
             exit 0
@@ -53,9 +53,24 @@ jobs:
           # 校验不通过就让任务失败，坏文件不会被提交
           python3 script/qxconf/check_v2rayn.py /tmp/xray /tmp
 
+      - name: 用 mihomo 校验 Clash 规则集
+        run: |
+          set -o pipefail
+          if ! curl -fsSL --max-time 180 -o /tmp/mihomo.gz \
+                 "https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/mihomo-linux-amd64-compatible-${MIHOMO_VERSION}.gz"; then
+            echo "::warning::下载 mihomo 失败，跳过本次内核校验"
+            exit 0
+          fi
+          gunzip -f /tmp/mihomo.gz
+          chmod +x /tmp/mihomo
+          # 校验不通过就让任务失败，坏文件不会被提交
+          python3 script/qxconf/check_clash.py /tmp/mihomo
+        env:
+          MIHOMO_VERSION: v1.19.31
+
       - name: 提交并推送
         run: |
-          git add qx v2rayn
+          git add qx v2rayn clash
           if git diff --cached --quiet; then
             echo "合并资源无变化"
           else
@@ -66,7 +81,7 @@ jobs:
               | grep -vE '^(\+\+\+|---)' \
               | grep -vcE '^[+-](# UPDATED:| *"remarks": ".*\| 生成于 )' || true)
             if [ "$changed" -eq 0 ]; then
-              git restore --staged --worktree qx v2rayn
+              git restore --staged --worktree qx v2rayn clash
               echo "仅时间戳变化，跳过提交"
             else
               git commit -m "更新分流规则订阅资源 $(date -u -d '+8 hours' +'%Y-%m-%d')"
