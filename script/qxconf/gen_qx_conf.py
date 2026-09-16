@@ -33,6 +33,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 SRC_DIR = os.path.join(ROOT, "rule", "QuantumultX")
 OUT_DIR = os.path.join(ROOT, "qx")
 V2RAY_DIR = os.path.join(ROOT, "v2rayn")
+CLASH_SRC_DIR = os.path.join(ROOT, "rule", "Clash")
+CLASH_DIR = os.path.join(ROOT, "clash")
 
 RAW_PREFIX = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}/rule/QuantumultX"
 
@@ -394,6 +396,133 @@ def build_v2rayn(bundle):
     return rules, kept, dropped
 
 
+# ----------------------------------------------------------------- Clash ----
+
+# Clash / mihomo 的 rule-provider 文件本身不带策略，策略在主配置的 rules 里用
+# RULE-SET 指定，所以这里按目标策略拆成四个文件。编号即推荐的书写顺序，去重
+# 也按这个顺序进行：同一条规则只保留最先出现的那个文件里。
+#
+# 每项为 (规则集, 所属文件, 说明, 是否使用 no-resolve 版本)。01 里都是本地地址
+# 和优先直连的服务，排在最前面，必须用 no-resolve，否则每个请求都会先触发一次
+# DNS 解析。
+CLASH_ORDER = [
+    ("Lan", "01", "局域网及本地地址", True),
+    ("Direct", "01", "常见需要直连的服务", True),
+
+    ("AdvertisingLite", "02", "广告拦截", False),
+
+    ("Telegram", "03", "Telegram", False),
+    ("OpenAI", "03", "OpenAI", False),
+    ("Claude", "03", "Claude", False),
+    ("Gemini", "03", "Gemini", False),
+    ("Copilot", "03", "GitHub Copilot", False),
+    ("YouTube", "03", "YouTube", False),
+    ("Netflix", "03", "Netflix", False),
+    ("Disney", "03", "Disney+", False),
+    ("Spotify", "03", "Spotify", False),
+    ("TikTok", "03", "TikTok", False),
+    ("Emby", "03", "Emby", False),
+    ("AsianMedia", "03", "亚洲流媒体", False),
+    ("GlobalMedia", "03", "国际流媒体", False),
+    ("GitHub", "03", "GitHub", False),
+    ("Twitter", "03", "Twitter/X", False),
+    ("Facebook", "03", "Facebook", False),
+    ("Instagram", "03", "Instagram", False),
+    ("Discord", "03", "Discord", False),
+    ("Whatsapp", "03", "WhatsApp", False),
+    ("Line", "03", "LINE", False),
+    ("PayPal", "03", "PayPal", False),
+    ("Steam", "03", "Steam", False),
+    ("Speedtest", "03", "测速", False),
+    ("AppleProxy", "03", "需要代理的 Apple 服务", False),
+    ("Proxy", "03", "其他需要代理的服务", False),
+    ("Global", "03", "国外网站及服务", False),
+
+    ("Apple", "04", "Apple", False),
+    ("Microsoft", "04", "Microsoft", False),
+    ("ChinaMedia", "04", "国内流媒体", False),
+    ("China", "04", "国内网站及服务", False),
+]
+
+CLASH_BUNDLES = {
+    "01": ("Clash_01_Lan.yaml", "局域网及优先直连（no-resolve）", "DIRECT"),
+    "02": ("Clash_02_Reject.yaml", "广告拦截", "REJECT"),
+    "03": ("Clash_03_Proxy.yaml", "需要代理的服务", "PROXY"),
+    "04": ("Clash_04_Direct.yaml", "国内及直连服务", "DIRECT"),
+}
+
+
+def clash_source(name, no_resolve):
+    """挑出内容完整的那个变体。
+
+    上游对大规则集做了拆分：``X.yaml`` 只留下 DOMAIN-KEYWORD 和 IP 规则，域名
+    被单独放进 ``X_Domain.yaml``，完整的 classical 版本是 ``X_Classical.yaml``。
+    小规则集没有 _Classical，``X.yaml`` 本身就是完整的。直接用 X.yaml 会让
+    China、Global、Proxy、广告这些大集合悄悄丢掉九成以上的域名。
+    """
+    stems = ([f"{name}_Classical_No_Resolve", f"{name}_No_Resolve"] if no_resolve
+             else [f"{name}_Classical", name])
+    for stem in stems:
+        path = os.path.join(CLASH_SRC_DIR, name, f"{stem}.yaml")
+        if os.path.isfile(path):
+            return path
+    raise SystemExit(f"找不到 {name} 的 Clash 规则文件")
+
+
+def read_clash_rules(path):
+    """读出 payload 里的规则行，返回 [(去重键, 原始行)]。"""
+    rules = []
+    for line in open(path, encoding="utf-8"):
+        line = line.strip()
+        if not line.startswith("- "):
+            continue
+        rule = line[2:].strip()
+        if not rule or rule.startswith("#"):
+            continue
+        parts = rule.split(",")
+        # no-resolve 只是匹配方式，不参与去重
+        key = (parts[0].upper(), parts[1].lower() if len(parts) > 1 else "")
+        rules.append((key, rule))
+    return rules
+
+
+def build_clash():
+    seen = set()
+    buckets = {key: [] for key in CLASH_BUNDLES}
+    counts = {key: 0 for key in CLASH_BUNDLES}
+
+    for name, bundle, desc, no_resolve in CLASH_ORDER:
+        lines = []
+        for key, rule in read_clash_rules(clash_source(name, no_resolve)):
+            if key in seen:
+                continue
+            seen.add(key)
+            lines.append(f"  - {rule}")
+        if lines:
+            buckets[bundle].append((f"  # >>> {desc}（{name}，{len(lines)} 条）", lines))
+            counts[bundle] += len(lines)
+
+    written = []
+    for bundle, (filename, title, policy) in CLASH_BUNDLES.items():
+        out = [
+            f"# NAME: {title}",
+            f"# SOURCE: https://github.com/{REPO}",
+            f"# UPDATED: {time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime())} UTC",
+            f"# TOTAL: {counts[bundle]}",
+            f"# POLICY: 建议在 rules 中写 RULE-SET,<name>,{policy}",
+            "# behavior: classical",
+            "payload:",
+        ]
+        for header, lines in buckets[bundle]:
+            out.append(header)
+            out.extend(lines)
+        path = os.path.join(CLASH_DIR, filename)
+        with open(path, "w", encoding="utf-8") as fp:
+            fp.write("\n".join(out) + "\n")
+        written.append((filename, counts[bundle]))
+    return written
+
+
 def main():
     os.makedirs(OUT_DIR, exist_ok=True)
     for bundle in BUNDLES:
@@ -415,6 +544,10 @@ def main():
             fp.write("\n")
         print(f"{bundle['file']}: {kept} 条规则，{len(rules)} 条路由，"
               f"丢弃 {dropped} 条（USER-AGENT / IP-ASN）")
+
+    os.makedirs(CLASH_DIR, exist_ok=True)
+    for filename, count in build_clash():
+        print(f"{filename}: {count} 条规则")
 
 
 if __name__ == "__main__":
