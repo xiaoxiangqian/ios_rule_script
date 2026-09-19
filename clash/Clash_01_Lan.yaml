@@ -1,6 +1,6 @@
 # NAME: 局域网及优先直连（no-resolve）
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2026-09-17 22:01:07 UTC
+# UPDATED: 2026-09-19 21:23:33 UTC
 # TOTAL: 407
 # POLICY: 建议在 rules 中写 RULE-SET,<name>,DIRECT
 # behavior: classical

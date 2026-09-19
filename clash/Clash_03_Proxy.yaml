@@ -1,6 +1,6 @@
 # NAME: 需要代理的服务
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2026-09-17 22:01:07 UTC
+# UPDATED: 2026-09-19 21:23:33 UTC
 # TOTAL: 37652
 # POLICY: 建议在 rules 中写 RULE-SET,<name>,PROXY
 # behavior: classical
