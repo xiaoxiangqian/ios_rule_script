@@ -1,6 +1,6 @@
 # NAME: 国内及直连服务
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2026-09-19 21:23:33 UTC
+# UPDATED: 2026-09-21 22:33:44 UTC
 # TOTAL: 4227
 # POLICY: 建议在 rules 中写 RULE-SET,<name>,DIRECT
 # behavior: classical
@@ -64,18 +64,25 @@ payload:
   - DOMAIN-SUFFIX,xn--ohq11k7pl25iyo8a.cn
   - DOMAIN-SUFFIX,aaplimg.com
   - DOMAIN-SUFFIX,apple-appstore.cn
+  - DOMAIN-SUFFIX,apple-icloud.cn
   - DOMAIN-SUFFIX,apple-itunes.cn
   - DOMAIN-SUFFIX,appleappstore.cn
+  - DOMAIN-SUFFIX,appleicloud.cn
   - DOMAIN-SUFFIX,applepaycash.cn
   - DOMAIN-SUFFIX,applepaycash.com.cn
   - DOMAIN-SUFFIX,applepaysupplies.cn
   - DOMAIN-SUFFIX,applepaysupplies.com.cn
   - DOMAIN-SUFFIX,appstore.com
   - DOMAIN-SUFFIX,appstoreapple.cn
+  - DOMAIN-SUFFIX,icloud-apple.cn
+  - DOMAIN-SUFFIX,icloud.com.cn
+  - DOMAIN-SUFFIX,icloud.net.cn
+  - DOMAIN-SUFFIX,icloudapple.cn
   - DOMAIN-SUFFIX,itunes-apple.cn
   - DOMAIN-SUFFIX,itunesapple.cn
   - DOMAIN-SUFFIX,itunesradio.cn
   - DOMAIN-SUFFIX,itunesradio.com.cn
+  - DOMAIN-SUFFIX,me.com
   - DOMAIN-SUFFIX,apple-store.cn
   - DOMAIN-SUFFIX,apple-watch.com.ru
   - DOMAIN-SUFFIX,applestore.cn
@@ -88,15 +95,8 @@ payload:
   - DOMAIN-SUFFIX,appletv4.cn
   - DOMAIN-SUFFIX,appletv4.com.cn
   - DOMAIN-SUFFIX,appletvapp.apple
-  - DOMAIN-SUFFIX,apple-icloud.cn
-  - DOMAIN-SUFFIX,appleicloud.cn
-  - DOMAIN-SUFFIX,icloud-apple.cn
   - DOMAIN-SUFFIX,icloud-content.com.cn
   - DOMAIN-SUFFIX,icloud.cn
-  - DOMAIN-SUFFIX,icloud.com.cn
-  - DOMAIN-SUFFIX,icloud.net.cn
-  - DOMAIN-SUFFIX,icloudapple.cn
-  - DOMAIN-SUFFIX,me.com
   - DOMAIN-KEYWORD,apple-support.akadns.net
   - DOMAIN-KEYWORD,apple.com.akadns.net
   - DOMAIN-KEYWORD,apple.com.edgekey.net
