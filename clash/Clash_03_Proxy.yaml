@@ -1,7 +1,7 @@
 # NAME: 需要代理的服务
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2026-09-21 22:33:44 UTC
-# TOTAL: 37657
+# UPDATED: 2026-09-23 22:12:25 UTC
+# TOTAL: 37659
 # POLICY: 建议在 rules 中写 RULE-SET,<name>,PROXY
 # behavior: classical
 payload:
@@ -4624,7 +4624,7 @@ payload:
   - DOMAIN-SUFFIX,hls.itunes.apple.com
   - DOMAIN-SUFFIX,ocsp.apple.com
   - PROCESS-NAME,LookupViewService
-  # >>> 其他需要代理的服务（Proxy，6640 条）
+  # >>> 其他需要代理的服务（Proxy，6642 条）
   - DOMAIN,api.waqi.info
   - DOMAIN,aqi.aqicn.org
   - DOMAIN,assets-priconne-redive-us.akamaized.net
@@ -5687,6 +5687,7 @@ payload:
   - DOMAIN-SUFFIX,chinesen.de
   - DOMAIN-SUFFIX,chinesenews.net.au
   - DOMAIN-SUFFIX,chinesepen.org
+  - DOMAIN-SUFFIX,chineseposters.net
   - DOMAIN-SUFFIX,chineseradioseattle.com
   - DOMAIN-SUFFIX,chinesetalks.net
   - DOMAIN-SUFFIX,chineseupress.com
@@ -8521,6 +8522,7 @@ payload:
   - DOMAIN-SUFFIX,nordstromrack.com
   - DOMAIN-SUFFIX,nordvpn.com
   - DOMAIN-SUFFIX,nos.nl
+  - DOMAIN-SUFFIX,note.com
   - DOMAIN-SUFFIX,notepad-plus-plus.org
   - DOMAIN-SUFFIX,notion.so
   - DOMAIN-SUFFIX,nottinghampost.com
