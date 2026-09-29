@@ -51,10 +51,10 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Quant
 | Adidas | 19 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Adidas/Adidas.list |
 | Adobe | 137 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Adobe/Adobe.list |
 | AdobeActivation | 118 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/AdobeActivation/AdobeActivation.list |
-| Advertising | 286873 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Advertising/Advertising.list |
+| Advertising | 281184 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Advertising/Advertising.list |
 | AdvertisingLite | 38066 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/AdvertisingLite/AdvertisingLite.list |
 | AdvertisingMiTV | 165 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/AdvertisingMiTV/AdvertisingMiTV.list |
-| AdvertisingTest | 311469 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/AdvertisingTest/AdvertisingTest.list |
+| AdvertisingTest | 305758 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/AdvertisingTest/AdvertisingTest.list |
 | Aerogard | 3 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Aerogard/Aerogard.list |
 | Afdian | 2 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Afdian/Afdian.list |
 | AFP | 2 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/AFP/AFP.list |
@@ -159,11 +159,11 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Quant
 | ChinaASN | 1009 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaASN/ChinaASN.list |
 | ChinaDNS | 4 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaDNS/ChinaDNS.list |
 | ChinaIPs | 19223 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaIPs/ChinaIPs.list |
-| ChinaIPs/ChinaIPsTest | 22750 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaIPs/ChinaIPsTest/ChinaIPsTest.list |
+| ChinaIPs/ChinaIPsTest | 22755 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaIPs/ChinaIPsTest/ChinaIPsTest.list |
 | ChinaIPsBGP | 3916 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaIPsBGP/ChinaIPsBGP.list |
-| ChinaMax | 124058 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaMax/ChinaMax.list |
+| ChinaMax | 124057 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaMax/ChinaMax.list |
 | ChinaMaxNoIP | 111274 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaMaxNoIP/ChinaMaxNoIP.list |
-| ChinaMaxNoMedia | 123621 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaMaxNoMedia/ChinaMaxNoMedia.list |
+| ChinaMaxNoMedia | 123620 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaMaxNoMedia/ChinaMaxNoMedia.list |
 | ChinaMedia | 440 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaMedia/ChinaMedia.list |
 | ChinaMobile | 38 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaMobile/ChinaMobile.list |
 | ChinaNews | 4 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaNews/ChinaNews.list |
