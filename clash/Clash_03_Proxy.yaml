@@ -1,7 +1,7 @@
 # NAME: 需要代理的服务
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2026-09-29 22:55:55 UTC
-# TOTAL: 37666
+# UPDATED: 2026-10-01 23:08:09 UTC
+# TOTAL: 37671
 # POLICY: 建议在 rules 中写 RULE-SET,<name>,PROXY
 # behavior: classical
 payload:
@@ -4627,7 +4627,7 @@ payload:
   - DOMAIN-SUFFIX,hls.itunes.apple.com
   - DOMAIN-SUFFIX,ocsp.apple.com
   - PROCESS-NAME,LookupViewService
-  # >>> 其他需要代理的服务（Proxy，6647 条）
+  # >>> 其他需要代理的服务（Proxy，6649 条）
   - DOMAIN,api.waqi.info
   - DOMAIN,aqi.aqicn.org
   - DOMAIN,assets-priconne-redive-us.akamaized.net
@@ -6721,6 +6721,7 @@ payload:
   - DOMAIN-SUFFIX,fututrustee.com
   - DOMAIN-SUFFIX,fux.com
   - DOMAIN-SUFFIX,fuyin.net
+  - DOMAIN-SUFFIX,fuyin116.com
   - DOMAIN-SUFFIX,fuyindiantai.org
   - DOMAIN-SUFFIX,fuyu.org.tw
   - DOMAIN-SUFFIX,fw.cm
@@ -8292,6 +8293,7 @@ payload:
   - DOMAIN-SUFFIX,multiupload.com
   - DOMAIN-SUFFIX,mummysgold.com
   - DOMAIN-SUFFIX,murmur.tw
+  - DOMAIN-SUFFIX,muse.ai
   - DOMAIN-SUFFIX,musicade.net
   - DOMAIN-SUFFIX,musixmatch.com
   - DOMAIN-SUFFIX,muslimvideo.com
@@ -11275,7 +11277,7 @@ payload:
   - IP-CIDR,91.105.192.0/23
   - IP-CIDR6,2001:b28:f23d::/48
   - IP-CIDR6,2a0a:f280::/32
-  # >>> 国外网站及服务（Global，26421 条）
+  # >>> 国外网站及服务（Global，26424 条）
   - DOMAIN,1password.drift.click
   - DOMAIN,adobeereg.com
   - DOMAIN,agb9r0ad.qllfkl.com
@@ -22855,6 +22857,7 @@ payload:
   - DOMAIN-SUFFIX,huanyuju.com
   - DOMAIN-SUFFIX,huarenav.com
   - DOMAIN-SUFFIX,huarenporn.com
+  - DOMAIN-SUFFIX,huarun.win
   - DOMAIN-SUFFIX,huashundg.com
   - DOMAIN-SUFFIX,huawen.ac.uk
   - DOMAIN-SUFFIX,huaxin-lls.xyz
@@ -26304,6 +26307,7 @@ payload:
   - DOMAIN-SUFFIX,messybrainz.org
   - DOMAIN-SUFFIX,messytube.com
   - DOMAIN-SUFFIX,met-nude.com
+  - DOMAIN-SUFFIX,metaaivm.com
   - DOMAIN-SUFFIX,metabolomics.ac.uk
   - DOMAIN-SUFFIX,metabora.io
   - DOMAIN-SUFFIX,metabrainz.org
@@ -28910,6 +28914,7 @@ payload:
   - DOMAIN-SUFFIX,openbook.org.tw
   - DOMAIN-SUFFIX,opencas.io
   - DOMAIN-SUFFIX,openclaw.ai
+  - DOMAIN-SUFFIX,opencode.ai
   - DOMAIN-SUFFIX,opencollective.com
   - DOMAIN-SUFFIX,opendesktop.org
   - DOMAIN-SUFFIX,opendns.com

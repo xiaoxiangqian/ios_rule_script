@@ -1,6 +1,6 @@
 [
   {
-    "remarks": "分流规则 轻量版 | 生成于 2026-09-29 22:55:54 UTC | https://github.com/blackmatrix7/ios_rule_script",
+    "remarks": "分流规则 轻量版 | 生成于 2026-10-01 23:08:08 UTC | https://github.com/blackmatrix7/ios_rule_script",
     "outboundTag": "direct",
     "domain": [
       "full:ruleset-info.invalid"
@@ -7464,6 +7464,7 @@
       "domain:fututrustee.com",
       "domain:fux.com",
       "domain:fuyin.net",
+      "domain:fuyin116.com",
       "domain:fuyindiantai.org",
       "domain:fuyu.org.tw",
       "domain:fw.cm",
@@ -9314,6 +9315,7 @@
       "domain:multiupload.com",
       "domain:mummysgold.com",
       "domain:murmur.tw",
+      "domain:muse.ai",
       "domain:musicade.net",
       "domain:musixmatch.com",
       "domain:muslimvideo.com",
@@ -12592,11 +12594,11 @@
       "full:mvod.itunes.apple.com",
       "full:streamingaudio.itunes.apple.com",
       "full:news-client-search.apple.com",
+      "full:hls.itunes.apple.com",
       "full:mask-api.fe.apple-dns.net",
       "full:mask-t.apple-dns.net",
       "full:mask.apple-dns.net",
       "full:hls-amt.itunes.apple.com",
-      "full:hls.itunes.apple.com",
       "full:fmfmobile.icloud.com",
       "full:fmipmobile.icloud.com",
       "full:statici.icloud.com",
