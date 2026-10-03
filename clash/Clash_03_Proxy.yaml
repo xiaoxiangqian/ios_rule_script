@@ -1,7 +1,7 @@
 # NAME: 需要代理的服务
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2026-10-01 23:08:09 UTC
-# TOTAL: 37671
+# UPDATED: 2026-10-03 22:05:13 UTC
+# TOTAL: 37674
 # POLICY: 建议在 rules 中写 RULE-SET,<name>,PROXY
 # behavior: classical
 payload:
@@ -4627,7 +4627,7 @@ payload:
   - DOMAIN-SUFFIX,hls.itunes.apple.com
   - DOMAIN-SUFFIX,ocsp.apple.com
   - PROCESS-NAME,LookupViewService
-  # >>> 其他需要代理的服务（Proxy，6649 条）
+  # >>> 其他需要代理的服务（Proxy，6653 条）
   - DOMAIN,api.waqi.info
   - DOMAIN,aqi.aqicn.org
   - DOMAIN,assets-priconne-redive-us.akamaized.net
@@ -10653,6 +10653,7 @@ payload:
   - DOMAIN-SUFFIX,waiwaier.com
   - DOMAIN-SUFFIX,walletconnect.com
   - DOMAIN-SUFFIX,walletconnect.org
+  - DOMAIN-SUFFIX,wallhaven.cc
   - DOMAIN-SUFFIX,wallmama.com
   - DOMAIN-SUFFIX,wallornot.org
   - DOMAIN-SUFFIX,wallpapercasa.com
@@ -10774,6 +10775,7 @@ payload:
   - DOMAIN-SUFFIX,wikia.com
   - DOMAIN-SUFFIX,wikibooks.org
   - DOMAIN-SUFFIX,wikidata.org
+  - DOMAIN-SUFFIX,wikifunctions.org
   - DOMAIN-SUFFIX,wikileaks-forum.com
   - DOMAIN-SUFFIX,wikileaks.ch
   - DOMAIN-SUFFIX,wikileaks.com
@@ -10786,12 +10788,14 @@ payload:
   - DOMAIN-SUFFIX,wikilivres.info
   - DOMAIN-SUFFIX,wikimapia.org
   - DOMAIN-SUFFIX,wikimedia.org
+  - DOMAIN-SUFFIX,wikimediafoundation.org
   - DOMAIN-SUFFIX,wikinews.org
   - DOMAIN-SUFFIX,wikipedia.com
   - DOMAIN-SUFFIX,wikipedia.org
   - DOMAIN-SUFFIX,wikiquote.org
   - DOMAIN-SUFFIX,wikis.tw
   - DOMAIN-SUFFIX,wikisource.org
+  - DOMAIN-SUFFIX,wikispecies.org
   - DOMAIN-SUFFIX,wikiunblocked.org
   - DOMAIN-SUFFIX,wikiversity.org
   - DOMAIN-SUFFIX,wikivoyage.org
@@ -11277,7 +11281,7 @@ payload:
   - IP-CIDR,91.105.192.0/23
   - IP-CIDR6,2001:b28:f23d::/48
   - IP-CIDR6,2a0a:f280::/32
-  # >>> 国外网站及服务（Global，26424 条）
+  # >>> 国外网站及服务（Global，26423 条）
   - DOMAIN,1password.drift.click
   - DOMAIN,adobeereg.com
   - DOMAIN,agb9r0ad.qllfkl.com
@@ -17127,6 +17131,7 @@ payload:
   - DOMAIN-SUFFIX,classics.ac.uk
   - DOMAIN-SUFFIX,classymomsex.com
   - DOMAIN-SUFFIX,clau.de
+  - DOMAIN-SUFFIX,claude.dev
   - DOMAIN-SUFFIX,claudemcpclient.com
   - DOMAIN-SUFFIX,claudemcpcontent.com
   - DOMAIN-SUFFIX,clawhub.ai
@@ -35888,7 +35893,6 @@ payload:
   - DOMAIN-SUFFIX,walker.ac.uk
   - DOMAIN-SUFFIX,wallberis.ru
   - DOMAIN-SUFFIX,wallet.com
-  - DOMAIN-SUFFIX,wallhaven.cc
   - DOMAIN-SUFFIX,walmart-content.com
   - DOMAIN-SUFFIX,walmart.com
   - DOMAIN-SUFFIX,walmart.pharmacy
@@ -36230,7 +36234,6 @@ payload:
   - DOMAIN-SUFFIX,wikifeet.com
   - DOMAIN-SUFFIX,wikihow.com
   - DOMAIN-SUFFIX,wikimediacloud.org
-  - DOMAIN-SUFFIX,wikimediafoundation.org
   - DOMAIN-SUFFIX,wikiporn.tv
   - DOMAIN-SUFFIX,wikisexguide.com
   - DOMAIN-SUFFIX,wilberes.ru
