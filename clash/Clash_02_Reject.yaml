@@ -1,6 +1,6 @@
 # NAME: 广告拦截
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2026-10-03 22:05:13 UTC
+# UPDATED: 2026-10-06 00:43:25 UTC
 # TOTAL: 38065
 # POLICY: 建议在 rules 中写 RULE-SET,<name>,REJECT
 # behavior: classical

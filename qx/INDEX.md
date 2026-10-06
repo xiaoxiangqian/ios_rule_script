@@ -51,10 +51,10 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Quant
 | Adidas | 19 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Adidas/Adidas.list |
 | Adobe | 137 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Adobe/Adobe.list |
 | AdobeActivation | 118 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/AdobeActivation/AdobeActivation.list |
-| Advertising | 282499 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Advertising/Advertising.list |
+| Advertising | 283445 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Advertising/Advertising.list |
 | AdvertisingLite | 38066 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/AdvertisingLite/AdvertisingLite.list |
 | AdvertisingMiTV | 165 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/AdvertisingMiTV/AdvertisingMiTV.list |
-| AdvertisingTest | 307119 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/AdvertisingTest/AdvertisingTest.list |
+| AdvertisingTest | 307781 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/AdvertisingTest/AdvertisingTest.list |
 | Aerogard | 3 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Aerogard/Aerogard.list |
 | Afdian | 2 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Afdian/Afdian.list |
 | AFP | 2 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/AFP/AFP.list |
@@ -159,7 +159,7 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Quant
 | ChinaASN | 1009 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaASN/ChinaASN.list |
 | ChinaDNS | 4 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaDNS/ChinaDNS.list |
 | ChinaIPs | 19258 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaIPs/ChinaIPs.list |
-| ChinaIPs/ChinaIPsTest | 22776 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaIPs/ChinaIPsTest/ChinaIPsTest.list |
+| ChinaIPs/ChinaIPsTest | 22778 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaIPs/ChinaIPsTest/ChinaIPsTest.list |
 | ChinaIPsBGP | 3916 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaIPsBGP/ChinaIPsBGP.list |
 | ChinaMax | 124116 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaMax/ChinaMax.list |
 | ChinaMaxNoIP | 111274 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ChinaMaxNoIP/ChinaMaxNoIP.list |
@@ -305,7 +305,7 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Quant
 | Gitee | 2 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Gitee/Gitee.list |
 | GitHub | 31 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GitHub/GitHub.list |
 | GitLab | 6 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GitLab/GitLab.list |
-| Global | 35794 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list |
+| Global | 35795 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list |
 | GlobalMedia | 2341 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GlobalMedia/GlobalMedia.list |
 | GlobalScholar | 230 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GlobalScholar/GlobalScholar.list |
 | GlobalSign | 13 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/GlobalSign/GlobalSign.list |
@@ -507,7 +507,7 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Quant
 | Privacy | 39936 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Privacy/Privacy.list |
 | PrivateTracker | 248 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/PrivateTracker/PrivateTracker.list |
 | Protonmail | 5 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Protonmail/Protonmail.list |
-| Proxy | 7446 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Proxy/Proxy.list |
+| Proxy | 7447 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Proxy/Proxy.list |
 | ProxyLite | 993 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/ProxyLite/ProxyLite.list |
 | PSBC | 3 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/PSBC/PSBC.list |
 | Pubmatic | 1 | https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Pubmatic/Pubmatic.list |
