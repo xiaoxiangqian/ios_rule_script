@@ -1,7 +1,7 @@
 # NAME: 需要代理的服务
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2026-10-07 23:33:12 UTC
-# TOTAL: 37702
+# UPDATED: 2026-10-09 23:07:36 UTC
+# TOTAL: 37705
 # POLICY: 建议在 rules 中写 RULE-SET,<name>,PROXY
 # behavior: classical
 payload:
@@ -11313,7 +11313,7 @@ payload:
   - IP-CIDR,91.105.192.0/23
   - IP-CIDR6,2001:b28:f23d::/48
   - IP-CIDR6,2a0a:f280::/32
-  # >>> 国外网站及服务（Global，26419 条）
+  # >>> 国外网站及服务（Global，26422 条）
   - DOMAIN,1password.drift.click
   - DOMAIN,adobeereg.com
   - DOMAIN,agb9r0ad.qllfkl.com
@@ -26281,6 +26281,7 @@ payload:
   - DOMAIN-SUFFIX,meetfasttrack.com
   - DOMAIN-SUFFIX,meetsmartbook.com
   - DOMAIN-SUFFIX,meetyourdevices.com
+  - DOMAIN-SUFFIX,megaad.nz
   - DOMAIN-SUFFIX,megacamz.com
   - DOMAIN-SUFFIX,megaeth.com
   - DOMAIN-SUFFIX,megafilmporno.com
@@ -26291,10 +26292,12 @@ payload:
   - DOMAIN-SUFFIX,megamarket.ru
   - DOMAIN-SUFFIX,megamarket.tech
   - DOMAIN-SUFFIX,megamon.co.kr
+  - DOMAIN-SUFFIX,megapay.nz
   - DOMAIN-SUFFIX,megaphone.fm
   - DOMAIN-SUFFIX,megapornfreehd.com
   - DOMAIN-SUFFIX,megaporno.com.br
   - DOMAIN-SUFFIX,megapornpics.com
+  - DOMAIN-SUFFIX,megas4.com
   - DOMAIN-SUFFIX,megasrv.de
   - DOMAIN-SUFFIX,megatitsminka.com
   - DOMAIN-SUFFIX,megogo.net
@@ -30320,7 +30323,6 @@ payload:
   - DOMAIN-SUFFIX,proxyrarbg.org
   - DOMAIN-SUFFIX,prpops.com
   - DOMAIN-SUFFIX,prs-ltsn.ac.uk
-  - DOMAIN-SUFFIX,prts.plus
   - DOMAIN-SUFFIX,prucomm.ac.uk
   - DOMAIN-SUFFIX,prvbank.ru
   - DOMAIN-SUFFIX,ps-exchange.com
@@ -34288,6 +34290,7 @@ payload:
   - DOMAIN-SUFFIX,transarmuito.com
   - DOMAIN-SUFFIX,transcamslive.com
   - DOMAIN-SUFFIX,transcocon.ac.uk
+  - DOMAIN-SUFFIX,transfer.it
   - DOMAIN-SUFFIX,transferwise.com
   - DOMAIN-SUFFIX,transforming-musicology.ac.uk
   - DOMAIN-SUFFIX,transformingmusicology.ac.uk
