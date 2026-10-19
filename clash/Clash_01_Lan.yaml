@@ -1,14 +1,16 @@
 # NAME: 局域网及优先直连（no-resolve）
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2026-10-17 21:23:00 UTC
-# TOTAL: 407
+# UPDATED: 2026-10-19 22:53:26 UTC
+# TOTAL: 409
 # POLICY: 建议在 rules 中写 RULE-SET,<name>,DIRECT
 # behavior: classical
 payload:
-  # >>> 局域网及本地地址（Lan，140 条）
+  # >>> 局域网及本地地址（Lan，142 条）
   - DOMAIN,asusrouter.com
   - DOMAIN,instant.arubanetworks.com
   - DOMAIN,local.adguard.org
+  - DOMAIN,localhost.weixin.qq.com
+  - DOMAIN,localhost.work.weixin.qq.com
   - DOMAIN,oasisauth.h3c.com
   - DOMAIN,router.asus.com
   - DOMAIN,setmeup.arubanetworks.com

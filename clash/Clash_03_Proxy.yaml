@@ -1,7 +1,7 @@
 # NAME: 需要代理的服务
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2026-10-17 21:23:00 UTC
-# TOTAL: 37800
+# UPDATED: 2026-10-19 22:53:26 UTC
+# TOTAL: 37815
 # POLICY: 建议在 rules 中写 RULE-SET,<name>,PROXY
 # behavior: classical
 payload:
@@ -11318,7 +11318,7 @@ payload:
   - IP-CIDR,91.105.192.0/23
   - IP-CIDR6,2001:b28:f23d::/48
   - IP-CIDR6,2a0a:f280::/32
-  # >>> 国外网站及服务（Global，26512 条）
+  # >>> 国外网站及服务（Global，26527 条）
   - DOMAIN,1password.drift.click
   - DOMAIN,adobeereg.com
   - DOMAIN,agb9r0ad.qllfkl.com
@@ -13767,7 +13767,6 @@ payload:
   - DOMAIN-SUFFIX,asminternational.org
   - DOMAIN-SUFFIX,asmrbuluo.com
   - DOMAIN-SUFFIX,asn-online.org
-  - DOMAIN-SUFFIX,asobostudio.com
   - DOMAIN-SUFFIX,asp-cc.com
   - DOMAIN-SUFFIX,asp.net
   - DOMAIN-SUFFIX,aspbjournals.org
@@ -14775,8 +14774,15 @@ payload:
   - DOMAIN-SUFFIX,beforeigners.com
   - DOMAIN-SUFFIX,befuck.com
   - DOMAIN-SUFFIX,befuck.net
+  - DOMAIN-SUFFIX,beget.app
+  - DOMAIN-SUFFIX,beget.cloud
   - DOMAIN-SUFFIX,beget.com
+  - DOMAIN-SUFFIX,beget.de
+  - DOMAIN-SUFFIX,beget.hosting
+  - DOMAIN-SUFFIX,beget.pro
   - DOMAIN-SUFFIX,beget.ru
+  - DOMAIN-SUFFIX,beget.tech
+  - DOMAIN-SUFFIX,begetcdn.cloud
   - DOMAIN-SUFFIX,begin-trade.com
   - DOMAIN-SUFFIX,behaviour4learning.ac.uk
   - DOMAIN-SUFFIX,behavioural-science.ac.uk
@@ -14822,6 +14828,7 @@ payload:
   - DOMAIN-SUFFIX,beru.ru
   - DOMAIN-SUFFIX,besa.ac.uk
   - DOMAIN-SUFFIX,besc.ac.uk
+  - DOMAIN-SUFFIX,beserver.ru
   - DOMAIN-SUFFIX,beside.ac.uk
   - DOMAIN-SUFFIX,bess.ac.uk
   - DOMAIN-SUFFIX,best-sex-games.com
@@ -14934,6 +14941,7 @@ payload:
   - DOMAIN-SUFFIX,bfmat.ac.uk
   - DOMAIN-SUFFIX,bftv.ac.uk
   - DOMAIN-SUFFIX,bgc.ac.uk
+  - DOMAIN-SUFFIX,bget.ru
   - DOMAIN-SUFFIX,bgicdn.com
   - DOMAIN-SUFFIX,bgov.com
   - DOMAIN-SUFFIX,bgr.in
@@ -17856,6 +17864,7 @@ payload:
   - DOMAIN-SUFFIX,curseforge.com
   - DOMAIN-SUFFIX,cursor-cdn.com
   - DOMAIN-SUFFIX,cursorapi.com
+  - DOMAIN-SUFFIX,cursorvm.com
   - DOMAIN-SUFFIX,curve.fi
   - DOMAIN-SUFFIX,curvybbwwives.com
   - DOMAIN-SUFFIX,curvyerotic.com
@@ -20468,7 +20477,6 @@ payload:
   - DOMAIN-SUFFIX,fli8.xyz
   - DOMAIN-SUFFIX,flic.kr
   - DOMAIN-SUFFIX,flickr.net
-  - DOMAIN-SUFFIX,flightsimulator.com
   - DOMAIN-SUFFIX,flipfap.com
   - DOMAIN-SUFFIX,flipnotestudio.com
   - DOMAIN-SUFFIX,flipshare.com
@@ -29003,6 +29011,7 @@ payload:
   - DOMAIN-SUFFIX,opac-project.eu
   - DOMAIN-SUFFIX,opdems.ac.uk
   - DOMAIN-SUFFIX,open.ac.uk
+  - DOMAIN-SUFFIX,openai.org
   - DOMAIN-SUFFIX,openamt.com
   - DOMAIN-SUFFIX,openapiplatform.com
   - DOMAIN-SUFFIX,openapiservice.com
@@ -31676,6 +31685,7 @@ payload:
   - DOMAIN-SUFFIX,school-economic-science.ac.uk
   - DOMAIN-SUFFIX,schwab.com.sg
   - DOMAIN-SUFFIX,schwabassetmanagement.com
+  - DOMAIN-SUFFIX,schwabcdn.com
   - DOMAIN-SUFFIX,schwabplan.com
   - DOMAIN-SUFFIX,sci-hub.it.nf
   - DOMAIN-SUFFIX,sci-hub.mksa.top
@@ -32943,6 +32953,7 @@ payload:
   - DOMAIN-SUFFIX,spring13.top
   - DOMAIN-SUFFIX,sprinklesapp.com
   - DOMAIN-SUFFIX,sprint.ac.uk
+  - DOMAIN-SUFFIX,sprut.io
   - DOMAIN-SUFFIX,spsrn.ac.uk
   - DOMAIN-SUFFIX,sptvbroadcast.com
   - DOMAIN-SUFFIX,spurgeons.ac.uk
@@ -34162,6 +34173,8 @@ payload:
   - DOMAIN-SUFFIX,timesmembership.com
   - DOMAIN-SUFFIX,timeweb.cloud
   - DOMAIN-SUFFIX,timeweb.com
+  - DOMAIN-SUFFIX,timeweb.tech
+  - DOMAIN-SUFFIX,timewebcloud.kz
   - DOMAIN-SUFFIX,timi1.me
   - DOMAIN-SUFFIX,timo0.com
   - DOMAIN-SUFFIX,ting53.xyz
@@ -34653,6 +34666,7 @@ payload:
   - DOMAIN-SUFFIX,typeisbeautiful.com
   - DOMAIN-SUFFIX,typekit.com
   - DOMAIN-SUFFIX,typenetwork.com
+  - DOMAIN-SUFFIX,typesafe.ai
   - DOMAIN-SUFFIX,typesquare.com
   - DOMAIN-SUFFIX,tyre-cadcam.com
   - DOMAIN-SUFFIX,tyrecadcam.com
@@ -36841,6 +36855,7 @@ payload:
   - DOMAIN-SUFFIX,xn--90ab.com
   - DOMAIN-SUFFIX,xn--90ab2c.xn--p1ai
   - DOMAIN-SUFFIX,xn--90absjljw3g.xn--p1ai
+  - DOMAIN-SUFFIX,xn--90aefb9d.xn--p1ai
   - DOMAIN-SUFFIX,xn--90aifd0az.shop
   - DOMAIN-SUFFIX,xn--90aifd0azb.xn--p1acf
   - DOMAIN-SUFFIX,xn--9kr7l.com
