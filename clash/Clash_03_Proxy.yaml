@@ -1,7 +1,7 @@
 # NAME: 需要代理的服务
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2026-10-25 21:35:56 UTC
-# TOTAL: 37890
+# UPDATED: 2026-10-27 22:56:36 UTC
+# TOTAL: 37901
 # POLICY: 建议在 rules 中写 RULE-SET,<name>,PROXY
 # behavior: classical
 payload:
@@ -11353,7 +11353,7 @@ payload:
   - IP-CIDR,91.105.192.0/23
   - IP-CIDR6,2001:b28:f23d::/48
   - IP-CIDR6,2a0a:f280::/32
-  # >>> 国外网站及服务（Global，26567 条）
+  # >>> 国外网站及服务（Global，26578 条）
   - DOMAIN,1password.drift.click
   - DOMAIN,adobeereg.com
   - DOMAIN,agb9r0ad.qllfkl.com
@@ -11385,6 +11385,7 @@ payload:
   - DOMAIN,crl.versign.net
   - DOMAIN,databank.worldbank.org
   - DOMAIN,datarouter.apps.netherrealm.com
+  - DOMAIN,dc.services.visualstudio.com
   - DOMAIN,deutschewelle.h-cdn.com
   - DOMAIN,dl.begellhouse.com
   - DOMAIN,ea.tt.omtrdc.net
@@ -11453,6 +11454,7 @@ payload:
   - DOMAIN,rsshub.umzzz.com
   - DOMAIN,rsshub.woodland.cafe
   - DOMAIN,rsshub2.asailor.org
+  - DOMAIN,rt.services.visualstudio.com
   - DOMAIN,standchartbank.sc.omtrdc.net
   - DOMAIN,standchartbank.tt.omtrdc.net
   - DOMAIN,straitsx-826709081262441084-b790f87a2ae6fd417434295.freshchat.com
@@ -12201,6 +12203,7 @@ payload:
   - DOMAIN-SUFFIX,addison.ac.uk
   - DOMAIN-SUFFIX,addthiscdn.com
   - DOMAIN-SUFFIX,addtoany.com
+  - DOMAIN-SUFFIX,addtodropbox.com
   - DOMAIN-SUFFIX,addyoutube.com
   - DOMAIN-SUFFIX,adelaidenow.com.au
   - DOMAIN-SUFFIX,adeptt.ac.uk
@@ -18060,6 +18063,7 @@ payload:
   - DOMAIN-SUFFIX,dasaob.online
   - DOMAIN-SUFFIX,dasg.ac.uk
   - DOMAIN-SUFFIX,dash-1.ac.uk
+  - DOMAIN-SUFFIX,dash.ai
   - DOMAIN-SUFFIX,dashly.app
   - DOMAIN-SUFFIX,dashly.help
   - DOMAIN-SUFFIX,dashly.io
@@ -18738,6 +18742,7 @@ payload:
   - DOMAIN-SUFFIX,docs.com
   - DOMAIN-SUFFIX,docs.rs
   - DOMAIN-SUFFIX,docs.rw
+  - DOMAIN-SUFFIX,docsend.com
   - DOMAIN-SUFFIX,doctor-videos.com
   - DOMAIN-SUFFIX,documentforce.com
   - DOMAIN-SUFFIX,docusend.ac.uk
@@ -18914,12 +18919,15 @@ payload:
   - DOMAIN-SUFFIX,dropboxapi.com
   - DOMAIN-SUFFIX,dropboxbusiness.com
   - DOMAIN-SUFFIX,dropboxcaptcha.com
+  - DOMAIN-SUFFIX,dropboxexperiment.com
   - DOMAIN-SUFFIX,dropboxforum.com
   - DOMAIN-SUFFIX,dropboxforums.com
   - DOMAIN-SUFFIX,dropboxinsiders.com
+  - DOMAIN-SUFFIX,dropboxlegal.com
   - DOMAIN-SUFFIX,dropboxmail.com
   - DOMAIN-SUFFIX,dropboxpartners.com
   - DOMAIN-SUFFIX,dropboxstatic.com
+  - DOMAIN-SUFFIX,dropboxteam.com
   - DOMAIN-SUFFIX,dropboxusercontent.com
   - DOMAIN-SUFFIX,drpc.org
   - DOMAIN-SUFFIX,drunk6.com
@@ -22283,9 +22291,11 @@ payload:
   - DOMAIN-SUFFIX,heise360181.buzz
   - DOMAIN-SUFFIX,heise360182.buzz
   - DOMAIN-SUFFIX,helf.ac.uk
+  - DOMAIN-SUFFIX,hellofax.com
   - DOMAIN-SUFFIX,hellofuture.ac.uk
   - DOMAIN-SUFFIX,hellokittybeats.com
   - DOMAIN-SUFFIX,hellomoto.com
+  - DOMAIN-SUFFIX,hellosign.com
   - DOMAIN-SUFFIX,hellosmartbook.com
   - DOMAIN-SUFFIX,hellporno.com
   - DOMAIN-SUFFIX,hellven.net
@@ -25386,6 +25396,7 @@ payload:
   - DOMAIN-SUFFIX,library.lol
   - DOMAIN-SUFFIX,librarylovefest.com
   - DOMAIN-SUFFIX,libraryofthumbs.com
+  - DOMAIN-SUFFIX,librewolf.dev
   - DOMAIN-SUFFIX,librewolf.net
   - DOMAIN-SUFFIX,libsolutions.app
   - DOMAIN-SUFFIX,libsolutions.domains

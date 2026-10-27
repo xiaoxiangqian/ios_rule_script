@@ -1,6 +1,6 @@
 # NAME: 国内及直连服务
 # SOURCE: https://github.com/blackmatrix7/ios_rule_script
-# UPDATED: 2026-10-25 21:35:56 UTC
+# UPDATED: 2026-10-27 22:56:36 UTC
 # TOTAL: 4226
 # POLICY: 建议在 rules 中写 RULE-SET,<name>,DIRECT
 # behavior: classical
