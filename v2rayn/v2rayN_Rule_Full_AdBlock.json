@@ -1,6 +1,6 @@
 [
   {
-    "remarks": "分流规则 完整版 + 广告拦截 | 生成于 2026-10-27 22:56:35 UTC | https://github.com/blackmatrix7/ios_rule_script",
+    "remarks": "分流规则 完整版 + 广告拦截 | 生成于 2026-11-07 06:16:54 UTC | https://github.com/blackmatrix7/ios_rule_script",
     "outboundTag": "direct",
     "domain": [
       "full:ruleset-info.invalid"
@@ -38489,6 +38489,30 @@
     "enabled": true
   },
   {
+    "remarks": "自定义直连（MyDirect）域名",
+    "outboundTag": "direct",
+    "domain": [
+      "domain:hjdict.com",
+      "domain:jpgoodbuy.com",
+      "domain:youshaohua.com",
+      "zhenti",
+      "domain:91wllm.com",
+      "domain:eoffcn.com",
+      "domain:cjtouzi.com",
+      "domain:autodesk.com",
+      "domain:a.jingshi2015.com",
+      "domain:hbcjxc.com",
+      "domain:youlu.com",
+      "domain:233.com",
+      "domain:z4a.net",
+      "domain:niceloo.com",
+      "domain:easyliao.com",
+      "domain:xiaohongshu.net",
+      "domain:aiqicha.com"
+    ],
+    "enabled": true
+  },
+  {
     "remarks": "Telegram（Telegram）域名",
     "outboundTag": "proxy",
     "domain": [
@@ -53754,7 +53778,6 @@
       "domain:autodesk-support.com",
       "domain:autodesk-university.com",
       "domain:autodesk-usability.com",
-      "domain:autodesk.com",
       "domain:autodesk.dev",
       "domain:autodesk.net",
       "domain:autodesk123d.com",

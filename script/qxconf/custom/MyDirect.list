@@ -1,0 +1,20 @@
+# NAME: MyDirect
+# 自定义直连规则，由 gen_qx_conf.py 合并进 qx/ 下的分流文件。
+# 已被现有直连规则覆盖的域名不必再写（生成时也会按顺序去重）。
+HOST-SUFFIX,hjdict.com
+HOST-SUFFIX,jpgoodbuy.com
+HOST-SUFFIX,youshaohua.com
+HOST-KEYWORD,zhenti
+HOST-SUFFIX,91wllm.com
+HOST-SUFFIX,eoffcn.com
+HOST-SUFFIX,cjtouzi.com
+HOST-SUFFIX,autodesk.com
+HOST-SUFFIX,a.jingshi2015.com
+HOST-SUFFIX,hbcjxc.com
+HOST-SUFFIX,youlu.com
+HOST-SUFFIX,233.com
+HOST-SUFFIX,z4a.net
+HOST-SUFFIX,niceloo.com
+HOST-SUFFIX,easyliao.com
+HOST-SUFFIX,xiaohongshu.net
+HOST-SUFFIX,aiqicha.com
