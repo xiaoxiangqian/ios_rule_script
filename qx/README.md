@@ -54,11 +54,12 @@ Quantumult X 自上而下匹配，文件内的顺序是：
 
 1. 局域网、本地地址 → `direct`
 2. 需要直连的常见服务 → `direct`
-3. Telegram / AI / 流媒体 / 社交 / 开发者服务等 → 代理
-4. Apple、Microsoft → `direct`（分组版为独立策略，可自行改成代理）
-5. 国内流媒体、国内网站 → `direct`
-6. `GEOIP,CN,direct`
-7. `FINAL,Proxy`
+3. 自定义直连（`script/qxconf/custom/MyDirect.list`）→ `direct`
+4. Telegram / AI / 流媒体 / 社交 / 开发者服务等 → 代理
+5. Apple、Microsoft → `direct`（分组版为独立策略，可自行改成代理）
+6. 国内流媒体、国内网站 → `direct`
+7. `GEOIP,CN,direct`
+8. `FINAL,Proxy`
 
 跨规则集重复的域名只保留最先出现的那一条，所以越靠前的规则集优先级越高。
 
@@ -103,3 +104,6 @@ python3 script/qxconf/gen_qx_conf.py
 
 需要增删规则集或调整策略映射，改 `script/qxconf/gen_qx_conf.py` 顶部的
 `SIMPLE` / `GROUP` / `REJECT` 列表即可。
+
+想自己加直连域名，往 `script/qxconf/custom/MyDirect.list` 里加一行（Quantumult X 格式，
+不写策略，例如 `HOST-SUFFIX,example.com`），提交后下一次自动更新就会合并进去。

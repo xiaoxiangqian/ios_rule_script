@@ -31,6 +31,8 @@ REPO = "blackmatrix7/ios_rule_script"
 BRANCH = "master"
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SRC_DIR = os.path.join(ROOT, "rule", "QuantumultX")
+# 自定义规则集（如 MyDirect.list），同名时优先于 rule/QuantumultX
+CUSTOM_DIR = os.path.join(ROOT, "script", "qxconf", "custom")
 OUT_DIR = os.path.join(ROOT, "qx")
 V2RAY_DIR = os.path.join(ROOT, "v2rayn")
 CLASH_SRC_DIR = os.path.join(ROOT, "rule", "Clash")
@@ -42,6 +44,7 @@ RAW_PREFIX = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}/rule/Quantumult
 SIMPLE = [
     ("Lan", "direct", "局域网及本地地址"),
     ("Direct", "direct", "常见需要直连的服务"),
+    ("MyDirect", "direct", "自定义直连"),
     ("Telegram", "Proxy", "Telegram"),
     ("OpenAI", "Proxy", "OpenAI"),
     ("Claude", "Proxy", "Claude"),
@@ -84,6 +87,7 @@ for item in SIMPLE:
 GROUP = [
     ("Lan", "direct", "局域网及本地地址"),
     ("Direct", "direct", "常见需要直连的服务"),
+    ("MyDirect", "direct", "自定义直连"),
     ("Telegram", "Telegram", "Telegram"),
     ("OpenAI", "AI", "OpenAI"),
     ("Claude", "AI", "Claude"),
@@ -160,7 +164,9 @@ def read_rules(name):
     ``YouTube`` 对应 ``YouTube/YouTube.list``，``Cloud/CloudCN`` 对应
     ``Cloud/CloudCN/CloudCN.list``。
     """
-    path = os.path.join(SRC_DIR, name, f"{os.path.basename(name)}.list")
+    path = os.path.join(CUSTOM_DIR, f"{name}.list")
+    if not os.path.isfile(path):
+        path = os.path.join(SRC_DIR, name, f"{os.path.basename(name)}.list")
     rules = []
     with open(path, encoding="utf-8") as fp:
         for line in fp:
